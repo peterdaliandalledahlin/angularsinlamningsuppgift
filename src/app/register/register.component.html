@@ -1,0 +1,96 @@
+<app-header></app-header>
+<div class="container">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="form-row mt-5">
+      <div class="form-group col-sm-3">
+        <mat-form-field>
+          <input matInput type="text" formControlName="firstname" class="form-control" id="firstname" placeholder="Förnamn" aria-label="Förnamn">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-3">
+        <mat-form-field>
+          <input matInput type="text" formControlName="middlename" class="form-control" id="middlename" placeholder="Mellannamn"  aria-label="Mellan namn">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-3">
+        <mat-form-field>
+          <input matInput type="text" formControlName="lastname" class="form-control" id="lastname" placeholder="Efternamn" aria-label="Efternamn">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-3">
+        <mat-form-field>
+          <input class="form-control" formControlName="birthday" matInput [matDatepicker]="picker" placeholder="Din födelsedag?"  aria-label="Födelsedag">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle><mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-sm-3">
+        <mat-form-field>
+          <input matInput type="email" formControlName="email" class="form-control" id="email" placeholder="E-post" aria-label="E-post">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-4">
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" class="form-control" id="password" placeholder="Password" aria-label="Lösenord">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-sm-3">
+        <mat-form-field>
+          <input matInput type="text" formControlName="billing_addressline" class="form-control" id="billing_addressline" placeholder="Adress - fakturering"  aria-label="Adress - fakturering">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-3">
+        <mat-form-field>
+          <input matInput type="text" formControlName="billing_city" class="form-control" id="billing_city" placeholder="Stad - fakturering"  aria-label="Stad - fakturering">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-3">
+        <mat-form-field>
+          <input matInput type="text" formControlName="billing_zipcode" class="form-control" id="billing_zipcode" placeholder="Postnummer - fakturering"  aria-label="Postnummer - fakturering">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-md-3">
+        <mat-label>Välj land</mat-label>
+        <mat-select matNativeControl required id="billing_country" formControlName="billing_country" class="form-control" aria-label="Land - fakturering">
+          <mat-option *ngFor="let country of countries" [value]="country.value">{{country.viewValue}}</mat-option>
+        </mat-select>
+      </div>
+    </div>  
+    <div class="form-row mb-3">
+      <label for="toggleaddress">Leveransadressen är samma som faktureringsadressen</label>
+      <mat-checkbox type="checkbox" name="toggleaddress" id="toggleaddress"></mat-checkbox>
+    </div>
+    <div class="form-row" id="displaydeliveryaddress">
+      <div class="form-group col-sm-3">
+        <mat-form-field>
+          <input matInput type="text" formControlName="delivery_addressline" class="form-control" id="delivery_addressline" placeholder="Adress - leverans">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-3">
+        <mat-form-field>
+          <input matInput type="text" formControlName="delivery_city" class="form-control" id="delivery_city" placeholder="Stad - leverans">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-3">
+        <mat-form-field>
+          <input matInput type="text" formControlName="delivery_zipcode" class="form-control" name="delivery_zipcode" id="delivery_zipcode" placeholder="Postnummer - leverans"  aria-label="Postnummer - leverans">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-md-3">
+        <mat-label>Välj land</mat-label>
+        <mat-select matNativeControl required id="delivery_country" formControlName="delivery_country" class="form-control"  aria-label="delivery_country">
+          <mat-option *ngFor="let country of countries" [value]="country.value">{{country.viewValue}}</mat-option>
+        </mat-select>
+        </div>
+    </div>
+      <div class="form-group">
+        <div class="form-check">
+          <mat-checkbox formControlName="gridCheck" type="checkbox" id="gridCheck" aria-label="Godkänn villkoren">Godkänn villkoren!</mat-checkbox>
+        </div>
+      </div>
+        <button mat-raised-button type="submit">Registrera</button>
+  </form>
+</div>

@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="container mt-5">
+    <form [formGroup]="updateForm" (ngSubmit)="updateUser()">
+    <h5 class="pb-4">Välkommen {{user.firstname}} {{user.lastname}}</h5>
+
+    <h6 class="pb-3">Här kan du uppdatera dina uppgifter;</h6>
+
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td><mat-form-field><input matInput type="text" formControlName="firstname" class="form-control" id="firstname" placeholder="Förnamn"></mat-form-field></td>
+          <td><mat-form-field><input matInput type="text" formControlName="middlename" class="form-control" id="middlename" placeholder="Mellannamn"></mat-form-field></td>
+          <td><mat-form-field><input matInput type="text" formControlName="lastname" class="form-control" id="lastname" placeholder="Efternamn"></mat-form-field></td>
+          <td><mat-form-field><input class="form-control" formControlName="birthday" matInput [matDatepicker]="picker" placeholder="Födelsedag"><mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle><mat-datepicker #picker></mat-datepicker></mat-form-field></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td><mat-form-field><input matInput type="text" formControlName="billing_zipcode" class="form-control" id="billing_zipcode" placeholder="Postnummer - faktura"></mat-form-field></td>
+          <td><mat-form-field><input matInput type="text" formControlName="billing_addressline" class="form-control" id="billing_addressline" placeholder="Adress - faktura"></mat-form-field></td>
+          <td><mat-form-field><input matInput type="text" formControlName="billing_city" class="form-control" id="billing_city" placeholder="Stad - faktura"></mat-form-field></td>
+          <td><mat-form-field><input matInput type="text" formControlName="billing_country" class="form-control" id="billing_country" placeholder="Land - faktura"></mat-form-field></td>
+        </tr>
+        <tr>
+          <td><mat-form-field><input matInput type="text" formControlName="delivery_zipcode" class="form-control" id="delivery_zipcode" placeholder="Postnummer - leverans"></mat-form-field></td>
+          <td><mat-form-field><input matInput type="text" formControlName="delivery_addressline" class="form-control" id="delivery_addressline" placeholder="Adress - leverans"></mat-form-field></td>
+          <td><mat-form-field><input matInput type="text" formControlName="delivery_city" class="form-control" id="delivery_city" placeholder="Stad - leverans"></mat-form-field></td>
+          <td><mat-form-field><input matInput type="text" formControlName="delivery_country" class="form-control" id="delivery_country" placeholder="Land- leverans"></mat-form-field></td>
+        </tr>
+        <tr>
+            <td><mat-form-field><input matInput type="text" formControlName="email" class="form-control" id="email" placeholder="E-post"></mat-form-field></td>
+            <td><mat-form-field><input matInput type="password" formControlName="password" class="form-control" id="password" placeholder="Lösenord"></mat-form-field></td>
+        </tr>
+      </tbody>   
+    </table>
+    <button mat-raised-button type="submit">Uppdatera</button>
+  </form>
+</div><!--container end-->

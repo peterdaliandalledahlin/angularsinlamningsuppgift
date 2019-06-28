@@ -1,0 +1,6 @@
+.background {
+    background-image: url('../../assets/images/bg-masthead.jpg');
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
